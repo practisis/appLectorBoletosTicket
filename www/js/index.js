@@ -571,7 +571,7 @@ function subirdatos(){
 			}
 			console.log(datos);
 			var valores = datos.substring(0,datos.length -1);
-			alert(valores)
+			//alert(valores)
 			$.post("http://www.lcodigo.com/ticket/apiMovil/subidaMovil.php",{ 
 				datos : valores , nombree : nombree , num_evento : num_evento , base : base 
 			}).done(function(data){
