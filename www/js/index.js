@@ -178,7 +178,7 @@ function validarIngresocodigo(){
 	// alert('hola');
 	 var reloj = $("#iframe1").contents().find("#reloj").val();
 	//var reloj = $("#reloj").val();
-	alert(reloj)
+	//alert(reloj)
 	var playing = false;
 	var codigo = $('#onlycodigo').val();
 	if(codigo == ''){
