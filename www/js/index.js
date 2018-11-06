@@ -553,7 +553,7 @@ function bajardatos(){
 function subirdatos(){ 
 	var nombree = $('#nom_empleado').val();
 	var num_evento = $('#num_evento').val();
-	
+	var base = 1;
 	$('#loadSubir').css('display','block');
 	var db = window.openDatabase("Database", "1.0", "TicketMobile", 200000);
 	db.transaction(function(tx){
@@ -573,7 +573,7 @@ function subirdatos(){
 			var valores = datos.substring(0,datos.length -1);
 			alert(valores)
 			$.post("http://www.lcodigo.com/ticket/apiMovil/subidaMovil.php",{ 
-				datos : valores , nombree : nombree , num_evento : num_evento
+				datos : valores , nombree : nombree , num_evento : num_evento , base : base 
 			}).done(function(data){
 				alert(data);
 				location.reload();		
@@ -606,7 +606,7 @@ function subirdatos(){
 			console.log(datos1);
 			var valores1 = datos1.substring(0,datos1.length -1);
 			$.post("http://www.lcodigo.com/ticket/apiMovil/subidaMovil2.php", { 
-				datos1:""+valores1+"" , nombree : nombree , num_evento : num_evento
+				datos1:""+valores1+"" , nombree : nombree , num_evento : num_evento , base : base 
 			}).done(function(response){
 				alert(response);
 				// $('#waitsubir').fadeOut('slow');
