@@ -157,7 +157,7 @@
 				var username = $('#username').val();
 				var id_con = $('#id_con').val();
 				var empleado = $('#empleado').val();
-				
+				var base = 1;
 				if(username == ''){
 					alert('ingrese la clave');
 				}
@@ -174,7 +174,7 @@
 					
 				}else{
 					$.post("http://www.lcodigo.com/ticket/apiMovil/baja_localidadades_clave.php",{ 
-						id_con : id_con , username : username
+						id_con : id_con , username : username , base : base
 					}).done(function(data){
 						//alert(data);
 						if($.trim(data)=='error'){
