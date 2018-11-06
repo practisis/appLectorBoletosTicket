@@ -176,8 +176,8 @@ var timestamp = valor+' '+horas;
 
 function validarIngresocodigo(){
 	// alert('hola');
-	// var reloj = $("#iframe1").contents().find("#reloj").val();
-	var reloj = $("#reloj").val();
+	 var reloj = $("#iframe1").contents().find("#reloj").val();
+	//var reloj = $("#reloj").val();
 	alert(reloj)
 	var playing = false;
 	var codigo = $('#onlycodigo').val();
