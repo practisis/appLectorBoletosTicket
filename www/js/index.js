@@ -41,7 +41,7 @@ function login(){
 	}else{
 		$('#botones').fadeOut('slow');
 		$('#loading').delay(600).fadeIn('slow');
-		$.get("http://www.lcodigo.com/ticket/apiMovil/loginMovil.php?user="+username+"&pass="+pass).done(function(response){
+		$.get("https://www.ticketfacil.ec/ticket2/controlAccesos/loginMovil.php?user="+username+"&pass="+pass).done(function(response){
 			if(response != 'error'){
 				
 				var content = '<table>'
@@ -176,9 +176,7 @@ var timestamp = valor+' '+horas;
 
 function validarIngresocodigo(){
 	// alert('hola');
-	 var reloj = $("#iframe1").contents().find("#reloj").val();
-	//var reloj = $("#reloj").val();
-	//alert(reloj)
+	var reloj = $("#iframe1").contents().find("#reloj").val();
 	var playing = false;
 	var codigo = $('#onlycodigo').val();
 	if(codigo == ''){
@@ -481,7 +479,7 @@ function bajardatos(){
 				$('#btnbajar').fadeOut('slow');
 				$('#waitbajar').delay(600).fadeIn('slow');
 				console.log('entra al post');
-				$.post("http://www.lcodigo.com/ticket/apiMovil/bajarMovil_fabricio3.php",{idconcierto:idconcierto,localidad:localidad}).done(function(response){
+				$.post("https://www.ticketfacil.ec/ticket2/controlAccesos/bajarMovil_fabricio3.php",{idconcierto:idconcierto,localidad:localidad}).done(function(response){
 					if(response != 'error'){
 						var objDatos=JSON.parse(response);
 						var misboletos=objDatos.Boletos;
@@ -553,7 +551,7 @@ function bajardatos(){
 function subirdatos(){ 
 	var nombree = $('#nom_empleado').val();
 	var num_evento = $('#num_evento').val();
-	var base = 1;
+	
 	$('#loadSubir').css('display','block');
 	var db = window.openDatabase("Database", "1.0", "TicketMobile", 200000);
 	db.transaction(function(tx){
@@ -571,15 +569,15 @@ function subirdatos(){
 			}
 			console.log(datos);
 			var valores = datos.substring(0,datos.length -1);
-			//alert(valores)
-			$.post("http://www.lcodigo.com/ticket/apiMovil/subidaMovil.php",{ 
-				datos : valores , nombree : nombree , num_evento : num_evento , base : base 
+			
+			$.post("https://www.ticketfacil.ec/ticket2/controlAccesos/subidaMovil.php",{ 
+				datos : valores , nombree : nombree , num_evento : num_evento
 			}).done(function(data){
 				alert(data);
 				location.reload();		
 			});
 
-			// $.post("http://www.lcodigo.com/ticket/apiMovil/subidaMovil.php", { datos:""+valores+""}).done(function(response){
+			// $.post("https://www.ticketfacil.ec/ticket2/controlAccesos/subidaMovil.php", { datos:""+valores+""}).done(function(response){
 				// console.log(response);
 				// // $('#waitsubir').fadeOut('slow');
 				// // $('#btnsubir').delay(600).fadeIn('slow');
@@ -605,10 +603,10 @@ function subirdatos(){
 			}
 			console.log(datos1);
 			var valores1 = datos1.substring(0,datos1.length -1);
-			$.post("http://www.lcodigo.com/ticket/apiMovil/subidaMovil2.php", { 
-				datos1:""+valores1+"" , nombree : nombree , num_evento : num_evento , base : base 
+			$.post("https://www.ticketfacil.ec/ticket2/controlAccesos/subidaMovil2.php", { 
+				datos1:""+valores1+"" , nombree : nombree , num_evento : num_evento
 			}).done(function(response){
-				alert(response);
+				console.log(response);
 				// $('#waitsubir').fadeOut('slow');
 				// $('#btnsubir').delay(600).fadeIn('slow');
 				// alert("Datos actualizados con éxito.");
@@ -637,7 +635,7 @@ function subirauditoria(){
 			}
 			console.log(datos);
 			var valores = datos.substring(0,datos.length -1);
-			$.get("http://www.lcodigo.com/ticket/apiMovil/auditoriaMovil.php?datos="+valores).done(function(response){
+			$.get("https://www.ticketfacil.ec/ticket2/controlAccesos/auditoriaMovil.php?datos="+valores).done(function(response){
 				console.log(response);
 				$('#waitsubir').fadeOut('slow');
 				$('#btnsubir').delay(600).fadeIn('slow');
