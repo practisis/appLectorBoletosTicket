@@ -419,14 +419,14 @@
 			 $("input[name='locales_check[]']:checked").each(function() {
 				var localidad = $(this).val();
 				var idconcierto=$('#myidconcierto').val();
-				var base = 1;
 				//alert(idconcierto +'<<>>'+localidad);
 				$('#bajarTodas').removeClass('btn btn-info');
 				$('#bajarTodas').addClass('btn btn-danger');
 				$('#bajarTodas').attr('disabled',true);
 				$('#waitsubir4').css('display','block');
+				var base = 1;
 				$.ajax({
-					url: "http://www.lcodigo.com/ticket/apiMovil/bajarMovil_fabricio3.php?idconcierto="+idconcierto+"&localidad="+localidad+'&base='+base,
+					url: "https://www.ticketfacil.ec/ticket2/controlAccesos/bajarMovil_fabricio3.php?idconcierto="+idconcierto+"&localidad="+localidad+'&base='+base,
 					//data: {idconcierto:idconcierto,localidad:localidad},
 				}).done(function(response) {
 					
