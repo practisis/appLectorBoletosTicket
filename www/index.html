@@ -173,10 +173,10 @@
 				if(username == '' || id_con == ''){
 					
 				}else{
-					$.post("http://www.lcodigo.com/ticket/apiMovil/baja_localidadades_clave.php",{ 
-						id_con : id_con , username : username , base : base
+					$.post("https://www.ticketfacil.ec/ticket2/controlAccesos/baja_localidadades_clave.php",{ 
+						id_con : id_con , username : username  ,base :  base 
 					}).done(function(data){
-						//alert(data);
+						alert(data);
 						if($.trim(data)=='error'){
 							alert('no hay datos para ese evento : ' + id_con)
 						}else if($.trim(data)=='vacio'){
